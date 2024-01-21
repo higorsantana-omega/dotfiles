@@ -1,0 +1,43 @@
+[user]
+	email = 
+	name = 
+
+[includeIf "gitdir:~/Development/git/github"]
+	path = ~/.gitconfig-my
+[includeIf "gitdir:~/Development/git/bitbucket-other"]
+	path = ~/.gitconfig-bitbucket-evnts
+[includeIf "gitdir:~/Development/git/bitbucket-my"]
+	path = ~/.gitconfig-bitbucket-my
+
+[safe]
+	directory = /opt/flutter
+[alias]
+  a = add
+  ai = add -i
+  ap = add -p
+  br = branch
+  c = commit -m
+  cl = clone
+  clean = !git reset --hard && git clean -df
+  co = checkout
+  cob = checkout -b
+  d = diff
+  done = !git push --follow-tags origin HEAD
+  fix = commit --amend -m
+  ft = fetch
+  i = init --initial-branch=main
+  l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  la = !"git config -l | grep alias | cut -c 7-"
+  pl = pull
+  ps = push
+  psf = push --force-with-lease
+  rm = branch -D
+  s = status
+  undo = reset HEAD~1 --mixed
+	rename = branch -m
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
