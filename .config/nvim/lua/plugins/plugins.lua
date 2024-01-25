@@ -14,7 +14,7 @@ return require('packer').startup(function()
   use 'lukas-reineke/indent-blankline.nvim'
 
   -- Produtivity
-  use 'nvim-tree/nvim-tree.lua'
+  use { 'nvim-tree/nvim-tree.lua', tag = 'compat-nvim-0.8' }
   use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
   use 'mrjones2014/smart-splits.nvim'
   use {
