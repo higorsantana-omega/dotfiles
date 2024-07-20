@@ -34,11 +34,9 @@ map('n', '<leader>e', ':NvimTreeToggle<CR>', { desc = 'Toggle Tree' })
 
 -- Bufferline
 vim.cmd([[ nnoremap <silent> <S-l> :BufferLineCycleNext<CR> ]])
-vim.cmd([[ inoremap <silent> <S-l> <Esc>:BufferLineCycleNext<CR>l ]])
 vim.cmd([[ vnoremap <silent> <S-l> <Esc>:BufferLineCycleNext<CR> ]])
 
 vim.cmd([[ nnoremap <silent> <S-h> :BufferLineCyclePrev<CR> ]])
-vim.cmd([[ inoremap <silent> <S-h> <Esc>:BufferLineCyclePrev<CR>l ]])
 vim.cmd([[ vnoremap <silent> <S-h> <Esc>:BufferLineCyclePrev<CR> ]])
 
 -- Telescope
@@ -69,3 +67,8 @@ vim.keymap.set('n', '<A-l>', require('smart-splits').resize_right)
 
 -- Pantran
 map('n', 'tr', ':Pantran<CR>')
+map('v', 'tr', ':Pantran<CR>')
+
+-- ToggleTerm
+map('n', '<C-\\>', ':ToggleTerm<CR>')
+map('t', '<C-\\>', '<cmd>:ToggleTerm<CR>')

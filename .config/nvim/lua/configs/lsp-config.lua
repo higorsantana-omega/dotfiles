@@ -31,6 +31,7 @@ local util = require "lspconfig/util"
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Language servers
@@ -38,6 +39,19 @@ lspconfig.tsserver.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   root_dir = util.root_pattern("package.json"),
+}
+
+lspconfig.dockerls.setup {
+  capabilities = capabilities,
+  settings = {
+        docker = {
+	    languageserver = {
+	        formatter = {
+		    ignoreMultilineInstructions = true,
+		},
+	    },
+	}
+    }
 }
 
 lspconfig.cssls.setup {
@@ -54,6 +68,10 @@ lspconfig.dockerls.setup {
 }
 
 lspconfig.html.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.elixirls.setup {
   capabilities = capabilities,
 }
 
@@ -84,6 +102,14 @@ lspconfig.gopls.setup {
 }
 
 lspconfig.bashls.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.tailwindcss.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.svelte.setup {
   capabilities = capabilities,
 }
 
